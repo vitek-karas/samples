@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MarshallingSample": {
+      "commandName": "Executable",
+      "executablePath": "$(SolutionDir)\\bin\\Debug\\MarshallingSample.exe"
+    }
+  }
+}

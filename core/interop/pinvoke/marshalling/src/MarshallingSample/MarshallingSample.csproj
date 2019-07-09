@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <OutputType>exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(SourceRoot)/MarshallingSampleNative/MarshallingSampleNative.csproj" />
+  </ItemGroup>
+
+  <Target Name="SetupForDemo"
+          AfterTargets="Build">
+
+    <ItemGroup>
+      <AllOutputs Include="$(OutputPath)MarshallingSample.*" />
+    </ItemGroup>
+
+    <!-- Copy the project outputs to the demo directory -->
+    <Copy SourceFiles="@(AllOutputs)"
+          DestinationFolder="$(BinRoot)/$(Configuration)" />
+  </Target>
+
+</Project>
