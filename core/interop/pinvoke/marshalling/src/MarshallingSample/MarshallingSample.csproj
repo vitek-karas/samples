@@ -9,16 +9,14 @@
     <ProjectReference Include="$(SourceRoot)/MarshallingSampleNative/MarshallingSampleNative.csproj" />
   </ItemGroup>
 
-  <Target Name="SetupForDemo"
-          AfterTargets="Build">
+  <Target Name="SetupForDemo" AfterTargets="Build">
 
     <ItemGroup>
       <AllOutputs Include="$(OutputPath)MarshallingSample.*" />
     </ItemGroup>
 
-    <!-- Copy the project outputs to the demo directory -->
-    <Copy SourceFiles="@(AllOutputs)"
-          DestinationFolder="$(BinRoot)/$(Configuration)" />
+    <!-- Copy the project outputs to the bin directory -->
+    <Copy SourceFiles="@(AllOutputs)" DestinationFolder="$(BinRoot)/$(Configuration)" />
   </Target>
 
 </Project>
