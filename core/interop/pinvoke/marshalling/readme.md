@@ -30,3 +30,10 @@ Build and Run
     * Or the executable will be in `bin` under a subdirectory for the configuration (`Debug` is the default).
         * Windows: `bin\Debug\MarshallingSample.exe`
         * Non-Windows: `bin/Debug/MarshallingSample`
+
+Note: The way the sample is built is relatively complicated. The goal is that it's possible to build and run the sample with simple `dotnet run` with minimal requirements on pre-installed tools. Typically real world projects which have both managed and native components will use different build systems for each, for example msbuild/dotnet for managed and CMake for native.
+
+Visual Studio support
+---------------------
+
+The `src\MarshallingSample.sln` can be used to open the sample in Visual Studio 2019. In order to be able to build from Visual Studio though it has to be started from the correct developer environment. From the developer environment console start it with `devenv src\MarshallingSample.sln`. With that the solution can be built. To run it set the start project to `MarshallingSample`.

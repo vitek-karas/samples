@@ -6,25 +6,19 @@ namespace MarshallingSample
     class Int32Marshalling
     {
         [DllImport(nameof(MarshallingSampleNative))]
-        private static extern void Marshal_Int32_ByValue_In([In] int value);
+        private static extern void PrintInt32Argument([In] int value);
 
         [DllImport(nameof(MarshallingSampleNative))]
-        private static extern void Marshal_Int32_ByValue_Out([Out] int value);
+        private static extern void PrintInt32ByRefArgument([In] ref int value);
 
         [DllImport(nameof(MarshallingSampleNative))]
-        private static extern void Marshal_Int32_ByValue_InOut([In, Out] int value);
+        private static extern void GetInt32OutArgument(out int value);
 
         [DllImport(nameof(MarshallingSampleNative))]
-        private static extern void Marshal_Int32_ByRef_In([In] ref int value);
+        private static extern void ModifyInt32InOutArgument(ref int value);
 
         [DllImport(nameof(MarshallingSampleNative))]
-        private static extern void Marshal_Int32_ByRef_Out(out int value);
-
-        [DllImport(nameof(MarshallingSampleNative))]
-        private static extern void Marshal_Int32_ByRef_InOut(ref int value);
-
-        [DllImport(nameof(MarshallingSampleNative))]
-        private static extern int Marshal_Int32_Ret(int value);
+        private static extern int ReturnInt32Argument(int value);
 
         public static void Run()
         {
@@ -35,40 +29,30 @@ namespace MarshallingSample
 
             Console.WriteLine($"Starting value is always {initialValue}");
 
-            Console.Write("Int32 ByValue In ");
+            Console.Write("Pass Int32 argument by value. Argument value: ");
             value = initialValue;
-            Marshal_Int32_ByValue_In(value);
+            PrintInt32Argument(value);
             Console.WriteLine();
 
-            Console.Write("Int32 ByValue Out ");
+            Console.Write("Pass Int32 argument by refernece. Argument value: ");
             value = initialValue;
-            Marshal_Int32_ByValue_Out(value);
-            Console.WriteLine($"out: {value}");
-
-            Console.Write("Int32 ByValue InOut ");
-            value = initialValue;
-            Marshal_Int32_ByValue_InOut(value);
-            Console.WriteLine($" out: {value}");
-
-            Console.Write("Int32 ByRef In ");
-            value = initialValue;
-            Marshal_Int32_ByRef_In(ref value);
+            PrintInt32ByRefArgument(ref value);
             Console.WriteLine();
 
-            Console.Write("Int32 ByRef Out ");
+            Console.Write("Get Int32 out parameter. ");
             value = initialValue;
-            Marshal_Int32_ByRef_Out(out value);
-            Console.WriteLine($"out: {value}");
+            GetInt32OutArgument(out value);
+            Console.WriteLine($"Value of out parameter: {value}");
 
-            Console.Write("Int32 ByRef InOut "); 
+            Console.Write("Pass Int32 in-out argument by reference. Argument value: "); 
             value = initialValue;
-            Marshal_Int32_ByRef_InOut(ref value);
-            Console.WriteLine($" out: {value}");
+            ModifyInt32InOutArgument(ref value);
+            Console.WriteLine($" Value after call: {value}");
 
-            Console.Write("Int32 Ret ");
+            Console.Write("Return Int32 value. Passed in value: ");
             value = initialValue;
-            Marshal_Int32_Ret(value);
-            Console.WriteLine($" ret: {value}");
+            ReturnInt32Argument(value);
+            Console.WriteLine($" Returned value: {value}");
         }
     }
 }

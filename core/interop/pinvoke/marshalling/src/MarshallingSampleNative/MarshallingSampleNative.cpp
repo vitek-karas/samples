@@ -1,40 +1,29 @@
 #include <stdio.h>
 #include "common.h"
 
-extern "C" DLL_EXPORT void STDMETHODCALLTYPE Marshal_Int32_ByValue_In(/*[In]*/ int value)
+extern "C" DLL_EXPORT void STDMETHODCALLTYPE PrintInt32Argument(/*[In]*/ int value)
 {
-    printf("in: %u", value);
+    printf("%u", value);
 }
 
-extern "C" DLL_EXPORT void STDMETHODCALLTYPE Marshal_Int32_ByValue_Out(/*[Out]*/ int value)
+extern "C" DLL_EXPORT void STDMETHODCALLTYPE PrintInt32ByRefArgument(/*[In]*/ int * pValue)
 {
-    value++;
+    printf("%u", *pValue);
 }
 
-extern "C" DLL_EXPORT void STDMETHODCALLTYPE Marshal_Int32_ByValue_InOut(/*[In,Out]*/ int value)
+extern "C" DLL_EXPORT void STDMETHODCALLTYPE GetInt32OutArgument(/*[Out]*/ int * pValue)
 {
-    printf("in: %u", value);
-    value++;
+    *pValue = 9;
 }
 
-extern "C" DLL_EXPORT void STDMETHODCALLTYPE Marshal_Int32_ByRef_In(/*[In]*/ int * pValue)
+extern "C" DLL_EXPORT void STDMETHODCALLTYPE ModifyInt32InOutArgument(/*[In,Out]*/ int * pValue)
 {
-    printf("in: %u", *pValue);
-}
-
-extern "C" DLL_EXPORT void STDMETHODCALLTYPE Marshal_Int32_ByRef_Out(/*[Out]*/ int * pValue)
-{
+    printf("%u", *pValue);
     (*pValue)++;
 }
 
-extern "C" DLL_EXPORT void STDMETHODCALLTYPE Marshal_Int32_ByRef_InOut(/*[In,Out]*/ int * pValue)
+extern "C" DLL_EXPORT int STDMETHODCALLTYPE ReturnInt32Argument(int value)
 {
-    printf("in: %u", *pValue);
-    (*pValue)++;
-}
-
-extern "C" DLL_EXPORT int STDMETHODCALLTYPE Marshal_Int32_Ret(int value)
-{
-    printf("in: %u", value);
+    printf("%u", value);
     return value;
 }
