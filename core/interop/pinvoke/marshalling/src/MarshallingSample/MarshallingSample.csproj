@@ -6,7 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="$(SourceRoot)/MarshallingSampleNative/MarshallingSampleNative.csproj" />
+    <ProjectReference Include="$(SourceRoot)/MarshallingSampleNative/MarshallingSampleNative.csproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
   </ItemGroup>
 
   <Target Name="SetupForDemo" AfterTargets="Build">
