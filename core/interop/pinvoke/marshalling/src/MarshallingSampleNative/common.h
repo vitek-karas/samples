@@ -17,4 +17,6 @@
 #define DLL_EXPORT
 #endif
 
+typedef int BOOL;
+
 #endif

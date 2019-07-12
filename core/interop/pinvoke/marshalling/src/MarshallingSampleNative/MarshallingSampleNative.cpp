@@ -1,12 +1,16 @@
 #include <stdio.h>
 #include "common.h"
 
-extern "C" DLL_EXPORT void STDMETHODCALLTYPE AcceptInt32Argument(/*[In]*/ int value)
+
+// Int32 functions
+extern "C" DLL_EXPORT int STDMETHODCALLTYPE AcceptInt32Argument(/*[In]*/ int value)
 {
+    return value;
 }
 
-extern "C" DLL_EXPORT void STDMETHODCALLTYPE AcceptInt32ByRefArgument(/*[In]*/ int * pValue)
+extern "C" DLL_EXPORT int STDMETHODCALLTYPE AcceptInt32ByRefArgument(/*[In]*/ int * pValue)
 {
+    return *pValue;
 }
 
 extern "C" DLL_EXPORT void STDMETHODCALLTYPE GetInt32OutArgument(/*[Out]*/ int * pValue)
@@ -20,6 +24,33 @@ extern "C" DLL_EXPORT void STDMETHODCALLTYPE ModifyInt32InOutArgument(/*[In,Out]
 }
 
 extern "C" DLL_EXPORT int STDMETHODCALLTYPE ReturnInt32Argument(int value)
+{
+    return value;
+}
+
+
+// Boolean functions
+extern "C" DLL_EXPORT int STDMETHODCALLTYPE AcceptBOOLArgument(BOOL value)
+{
+    return value ? 1 : 0;
+}
+
+extern "C" DLL_EXPORT int STDMETHODCALLTYPE AcceptBOOLByRefArgument(BOOL* pValue)
+{
+    return (*pValue) ? 1 : 0;
+}
+
+extern "C" DLL_EXPORT void STDMETHODCALLTYPE GetBOOLOutArgument(/*[Out]*/ BOOL* pValue)
+{
+    *pValue = false;
+}
+
+extern "C" DLL_EXPORT void STDMETHODCALLTYPE ModifyBOOLInOutArgument(/*[In,Out]*/ BOOL* pValue)
+{
+    *pValue = !(*pValue);
+}
+
+extern "C" DLL_EXPORT BOOL STDMETHODCALLTYPE ReturnBOOLArgument(BOOL value)
 {
     return value;
 }

@@ -8,6 +8,7 @@ namespace MarshallingSample
         public static int Main(string[] args)
         {
             Int32Marshalling.Run();
+            BooleanMarshalling.Run();
 
             return 0;
         }
