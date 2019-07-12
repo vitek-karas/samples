@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 namespace MarshallingSample
 {
@@ -31,8 +32,16 @@ namespace MarshallingSample
             value = MarshallingSampleNative.ReturnBOOLArgument(value);
 
             // Marshal boolean value in various ways
+            int count;
             value = initialValue;
-            int count = MarshallingSampleNative.CountTrueValues(!value, value, !value, value); // returns 2
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                count = MarshallingSampleNative.CountTrueValuesWindows(!value, value, !value, value); // returns 2
+            }
+            else
+            {
+                count = MarshallingSampleNative.CountTrueValues(!value, value, !value); // returns 1
+            }
         }
     }
 }

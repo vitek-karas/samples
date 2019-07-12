@@ -38,6 +38,10 @@ namespace MarshallingSample
         public static extern bool ReturnBOOLArgument(bool value);
 
         [DllImport(nameof(MarshallingSampleNative))]
-        public static extern int CountTrueValues(bool value1, [MarshalAs(UnmanagedType.U1)] bool value2, [MarshalAs(UnmanagedType.I1)] bool value3, [MarshalAs(UnmanagedType.VariantBool)] bool value4);
+        public static extern int CountTrueValues(bool value1, [MarshalAs(UnmanagedType.U1)] bool value2, [MarshalAs(UnmanagedType.I1)] bool value3);
+
+        // Marshalling as VariantBool is only supported on Windows
+        [DllImport(nameof(MarshallingSampleNative))]
+        public static extern int CountTrueValuesWindows(bool value1, [MarshalAs(UnmanagedType.U1)] bool value2, [MarshalAs(UnmanagedType.I1)] bool value3, [MarshalAs(UnmanagedType.VariantBool)] bool value4);
     }
 }

@@ -55,13 +55,22 @@ extern "C" DLL_EXPORT BOOL STDMETHODCALLTYPE ReturnBOOLArgument(BOOL value)
     return value;
 }
 
-extern "C" DLL_EXPORT int STDMETHODCALLTYPE CountTrueValues(BOOL value1, bool value2, bool value3, VARIANT_BOOL value4)
+extern "C" DLL_EXPORT int STDMETHODCALLTYPE CountTrueValues(BOOL value1, bool value2, bool value3)
 {
     int count = 0;
 
     count += (value1 == TRUE) ? 1 : 0;
     count += (value2 == true) ? 1 : 0;
     count += (value3 == true) ? 1 : 0;
+
+    return count;
+}
+
+extern "C" DLL_EXPORT int STDMETHODCALLTYPE CountTrueValuesWindows(BOOL value1, bool value2, bool value3, VARIANT_BOOL value4)
+{
+    int count = 0;
+
+    count += CountTrueValues(value1, value2, value3);
     count += (value4 == VARIANT_TRUE) ? 1 : 0;
 
     return count;
