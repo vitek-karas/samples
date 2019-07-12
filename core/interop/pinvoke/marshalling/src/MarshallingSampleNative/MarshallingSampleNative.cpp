@@ -42,7 +42,7 @@ extern "C" DLL_EXPORT int STDMETHODCALLTYPE AcceptBOOLByRefArgument(BOOL* pValue
 
 extern "C" DLL_EXPORT void STDMETHODCALLTYPE GetBOOLOutArgument(/*[Out]*/ BOOL* pValue)
 {
-    *pValue = false;
+    *pValue = FALSE;
 }
 
 extern "C" DLL_EXPORT void STDMETHODCALLTYPE ModifyBOOLInOutArgument(/*[In,Out]*/ BOOL* pValue)
@@ -53,4 +53,16 @@ extern "C" DLL_EXPORT void STDMETHODCALLTYPE ModifyBOOLInOutArgument(/*[In,Out]*
 extern "C" DLL_EXPORT BOOL STDMETHODCALLTYPE ReturnBOOLArgument(BOOL value)
 {
     return value;
+}
+
+extern "C" DLL_EXPORT int STDMETHODCALLTYPE CountTrueValues(BOOL value1, bool value2, bool value3, VARIANT_BOOL value4)
+{
+    int count = 0;
+
+    count += (value1 == TRUE) ? 1 : 0;
+    count += (value2 == true) ? 1 : 0;
+    count += (value3 == true) ? 1 : 0;
+    count += (value4 == VARIANT_TRUE) ? 1 : 0;
+
+    return count;
 }

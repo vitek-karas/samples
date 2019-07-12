@@ -6,35 +6,38 @@ namespace MarshallingSample
     {
         // Int32 marshalling APIs
         [DllImport(nameof(MarshallingSampleNative))]
-        internal static extern int AcceptInt32Argument([In] int value);
+        public static extern int AcceptInt32Argument([In] int value);
 
         [DllImport(nameof(MarshallingSampleNative))]
-        internal static extern int AcceptInt32ByRefArgument([In] ref int value);
+        public static extern int AcceptInt32ByRefArgument([In] ref int value);
 
         [DllImport(nameof(MarshallingSampleNative))]
-        internal static extern void GetInt32OutArgument(out int value);
+        public static extern void GetInt32OutArgument(out int value);
 
         [DllImport(nameof(MarshallingSampleNative))]
-        internal static extern void ModifyInt32InOutArgument(ref int value);
+        public static extern void ModifyInt32InOutArgument(ref int value);
 
         [DllImport(nameof(MarshallingSampleNative))]
-        internal static extern int ReturnInt32Argument(int value);
+        public static extern int ReturnInt32Argument(int value);
 
 
         // Boolean marshalling APIs
         [DllImport(nameof(MarshallingSampleNative))]
-        internal static extern int AcceptBOOLArgument([In] bool value);
+        public static extern int AcceptBOOLArgument([In] bool value);
 
         [DllImport(nameof(MarshallingSampleNative))]
-        internal static extern int AcceptBOOLByRefArgument([In] ref bool value);
+        public static extern int AcceptBOOLByRefArgument([In] ref bool value);
 
         [DllImport(nameof(MarshallingSampleNative))]
-        internal static extern void GetBOOLOutArgument(out bool value);
+        public static extern void GetBOOLOutArgument(out bool value);
 
         [DllImport(nameof(MarshallingSampleNative))]
-        internal static extern void ModifyBOOLInOutArgument(ref bool value);
+        public static extern void ModifyBOOLInOutArgument(ref bool value);
 
         [DllImport(nameof(MarshallingSampleNative))]
-        internal static extern bool ReturnBOOLArgument(bool value);
+        public static extern bool ReturnBOOLArgument(bool value);
+
+        [DllImport(nameof(MarshallingSampleNative))]
+        public static extern int CountTrueValues(bool value1, [MarshalAs(UnmanagedType.U1)] bool value2, [MarshalAs(UnmanagedType.I1)] bool value3, [MarshalAs(UnmanagedType.VariantBool)] bool value4);
     }
 }

@@ -6,7 +6,7 @@ namespace MarshallingSample
     {
         public static void Run()
         {
-            Console.WriteLine("----- Boolean marshalling as BOOL samples -----");
+            Console.WriteLine("----- Boolean marshalling samples -----");
 
             const bool initialValue = true;
             bool value;
@@ -29,6 +29,10 @@ namespace MarshallingSample
 
             // Return boolean value.
             value = MarshallingSampleNative.ReturnBOOLArgument(value);
+
+            // Marshal boolean value in various ways
+            value = initialValue;
+            int count = MarshallingSampleNative.CountTrueValues(!value, value, !value, value); // returns 2
         }
     }
 }
