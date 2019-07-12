@@ -1,58 +1,34 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 
 namespace MarshallingSample
 {
     class Int32Marshalling
     {
-        [DllImport(nameof(MarshallingSampleNative))]
-        private static extern void PrintInt32Argument([In] int value);
-
-        [DllImport(nameof(MarshallingSampleNative))]
-        private static extern void PrintInt32ByRefArgument([In] ref int value);
-
-        [DllImport(nameof(MarshallingSampleNative))]
-        private static extern void GetInt32OutArgument(out int value);
-
-        [DllImport(nameof(MarshallingSampleNative))]
-        private static extern void ModifyInt32InOutArgument(ref int value);
-
-        [DllImport(nameof(MarshallingSampleNative))]
-        private static extern int ReturnInt32Argument(int value);
-
         public static void Run()
         {
             Console.WriteLine("----- Int32 marshalling samples -----");
 
+            // Always start with the same value.
             const int initialValue = 7;
             int value;
 
-            Console.WriteLine($"Starting value is always {initialValue}");
-
-            Console.Write("Pass Int32 argument by value. Argument value: ");
+            // Pass Int32 argument by value.
             value = initialValue;
-            PrintInt32Argument(value);
-            Console.WriteLine();
+            MarshallingSampleNative.AcceptInt32Argument(value);
 
-            Console.Write("Pass Int32 argument by refernece. Argument value: ");
+            // Pass Int32 argument by refernece.
             value = initialValue;
-            PrintInt32ByRefArgument(ref value);
-            Console.WriteLine();
+            MarshallingSampleNative.AcceptInt32ByRefArgument(ref value);
 
-            Console.Write("Get Int32 out parameter. ");
-            value = initialValue;
-            GetInt32OutArgument(out value);
-            Console.WriteLine($"Value of out parameter: {value}");
+            // Get Int32 out parameter.
+            MarshallingSampleNative.GetInt32OutArgument(out value);
 
-            Console.Write("Pass Int32 in-out argument by reference. Argument value: "); 
+            // Pass Int32 in-out argument by reference.
             value = initialValue;
-            ModifyInt32InOutArgument(ref value);
-            Console.WriteLine($" Value after call: {value}");
+            MarshallingSampleNative.ModifyInt32InOutArgument(ref value);
 
-            Console.Write("Return Int32 value. Passed in value: ");
-            value = initialValue;
-            ReturnInt32Argument(value);
-            Console.WriteLine($" Returned value: {value}");
+            // Return Int32 value.
+            value = MarshallingSampleNative.ReturnInt32Argument(initialValue);
         }
     }
 }
