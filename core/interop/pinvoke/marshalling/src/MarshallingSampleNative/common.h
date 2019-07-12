@@ -21,7 +21,7 @@ typedef int BOOL;
 #define TRUE 1
 #define FALSE 0
 
-typedef int VARIANT_BOOL;
+typedef short VARIANT_BOOL;
 #define VARIANT_TRUE -1
 #define VARIANT_FALSE 0
 
