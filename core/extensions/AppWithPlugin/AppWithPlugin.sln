@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28306.52
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29317.48
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppWithPlugin", "AppWithPlugin\AppWithPlugin.csproj", "{B5775030-B799-453D-9600-BA5DD7A213F4}"
 EndProject
@@ -13,11 +13,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonPlugin", "JsonPlugin\Js
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OldJsonPlugin", "OldJsonPlugin\OldJsonPlugin.csproj", "{7A0C7AE7-3BD8-4E85-ADDB-9653FAE8A91B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrenchPlugin", "FrenchPlugin\FrenchPlugin.csproj", "{BDCB21F4-05FC-4047-9B35-58084FFFE49C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrenchPlugin", "FrenchPlugin\FrenchPlugin.csproj", "{BDCB21F4-05FC-4047-9B35-58084FFFE49C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UVPlugin", "UVPlugin\UVPlugin.csproj", "{B8698156-310C-471E-A957-58A118954BB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UVPlugin", "UVPlugin\UVPlugin.csproj", "{B8698156-310C-471E-A957-58A118954BB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XcopyablePlugin", "XcopyablePlugin\XcopyablePlugin.csproj", "{7B50BB55-C274-4625-94A1-71746E70C23C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XcopyablePlugin", "XcopyablePlugin\XcopyablePlugin.csproj", "{7B50BB55-C274-4625-94A1-71746E70C23C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PluginWithPlugin", "PluginWithPlugin", "{50BE33CE-85C1-4E59-B298-25E244DCE58B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChildBase", "PluginWithPlugin\ChildBase\ChildBase.csproj", "{CC5F85D8-9559-4BF6-9BA8-3B3726AB564D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChildPlugin", "PluginWithPlugin\ChildPlugin\ChildPlugin.csproj", "{64BBD79B-DD0B-4E67-808B-AD2617671B1A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginWithPlugin", "PluginWithPlugin\PluginWithPlugin\PluginWithPlugin.csproj", "{12F7610C-BEB1-46E5-AE8F-48F69E8707AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,9 +65,26 @@ Global
 		{7B50BB55-C274-4625-94A1-71746E70C23C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B50BB55-C274-4625-94A1-71746E70C23C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B50BB55-C274-4625-94A1-71746E70C23C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC5F85D8-9559-4BF6-9BA8-3B3726AB564D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC5F85D8-9559-4BF6-9BA8-3B3726AB564D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC5F85D8-9559-4BF6-9BA8-3B3726AB564D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC5F85D8-9559-4BF6-9BA8-3B3726AB564D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64BBD79B-DD0B-4E67-808B-AD2617671B1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64BBD79B-DD0B-4E67-808B-AD2617671B1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64BBD79B-DD0B-4E67-808B-AD2617671B1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64BBD79B-DD0B-4E67-808B-AD2617671B1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12F7610C-BEB1-46E5-AE8F-48F69E8707AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12F7610C-BEB1-46E5-AE8F-48F69E8707AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12F7610C-BEB1-46E5-AE8F-48F69E8707AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12F7610C-BEB1-46E5-AE8F-48F69E8707AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CC5F85D8-9559-4BF6-9BA8-3B3726AB564D} = {50BE33CE-85C1-4E59-B298-25E244DCE58B}
+		{64BBD79B-DD0B-4E67-808B-AD2617671B1A} = {50BE33CE-85C1-4E59-B298-25E244DCE58B}
+		{12F7610C-BEB1-46E5-AE8F-48F69E8707AB} = {50BE33CE-85C1-4E59-B298-25E244DCE58B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {357FEEE7-F34C-4B01-B204-39F2C5E24B16}
