@@ -8,7 +8,7 @@ namespace HelloPlugin
         public string Name { get => "hello"; }
         public string Description { get => "Displays hello message."; }
 
-        public int Execute()
+        public int Execute(NLog.Logger logger)
         {
             Console.WriteLine("Hello !!!");
             return 0;

@@ -12,7 +12,7 @@ namespace FrenchPlugin
 
         public string Description => "Uses satellite assembly to display french.";
 
-        public int Execute()
+        public int Execute(NLog.Logger logger)
         {
             DefaultFormatter formatter = new DefaultFormatter("fr");
             Console.WriteLine(formatter.DateHumanize_Now());

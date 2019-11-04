@@ -19,7 +19,7 @@ namespace JsonPlugin
             public DateTime Date;
         }
 
-        public int Execute()
+        public int Execute(NLog.Logger logger)
         {
             Assembly jsonAssembly = typeof(JsonConvert).Assembly;
             Info info = new Info()

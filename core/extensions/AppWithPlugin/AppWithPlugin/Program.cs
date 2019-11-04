@@ -55,7 +55,7 @@ namespace AppWithPlugin
                             return;
                         }
 
-                        command.Execute();
+                        command.Execute(null);
                         Console.WriteLine();
                     }
                 }
@@ -63,6 +63,12 @@ namespace AppWithPlugin
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
+                Console.WriteLine();
+
+                foreach (Assembly asm in AppDomain.CurrentDomain.GetAssemblies().Where(a => a.GetName().Name == "NLog"))
+                {
+                    Console.WriteLine($"{asm.GetName().Name} in ALC {System.Runtime.Loader.AssemblyLoadContext.GetLoadContext(asm)} loaded from {asm.Location} ");
+                }
             }
         }
 

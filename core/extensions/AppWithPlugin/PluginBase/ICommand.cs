@@ -5,6 +5,6 @@
         string Name { get; }
         string Description { get; }
 
-        int Execute();
+        int Execute(NLog.Logger logger);
     }
 }

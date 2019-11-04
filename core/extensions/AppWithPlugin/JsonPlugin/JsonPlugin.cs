@@ -20,7 +20,7 @@ namespace JsonPlugin
             public DateTime Date;
         }
 
-        public int Execute()
+        public int Execute(NLog.Logger logger)
         {
             Assembly jsonAssembly = typeof(JsonConvert).Assembly;
             Info info = new Info()
@@ -31,6 +31,7 @@ namespace JsonPlugin
                 User = Environment.UserName,
                 Date = DateTime.Now
             };
+
 
             Console.WriteLine(JsonConvert.SerializeObject(info, Formatting.Indented));
 

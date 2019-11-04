@@ -10,7 +10,7 @@ namespace UVPlugin
 
         public string Description => "Uses the native library libuv to show its version.";
 
-        public int Execute()
+        public int Execute(NLog.Logger logger)
         {
             Console.WriteLine($"Using libuv version {GetVersion()}.");
             return 0;
