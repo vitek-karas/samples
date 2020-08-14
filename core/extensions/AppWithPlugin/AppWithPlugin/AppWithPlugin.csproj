@@ -2,11 +2,19 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PluginBase\PluginBase.csproj" />
   </ItemGroup>
+
+  <PropertyGroup>
+    <CustomizePublishSingleFile_RuntimeRepoRoot>F:\dotnet\runtime</CustomizePublishSingleFile_RuntimeRepoRoot>
+    <CustomizePublishSingleFile_CoreClrConfig>Windows_NT.x64.Debug</CustomizePublishSingleFile_CoreClrConfig>
+    <CustomizePublishSingleFile_CoreHostConfig>win-x64.Debug</CustomizePublishSingleFile_CoreHostConfig>
+  </PropertyGroup>
+
+  <Import Project="F:\vitkaras\single-file-feature-test\CustomizePublishSingleFile.targets"/>
 
 </Project>
